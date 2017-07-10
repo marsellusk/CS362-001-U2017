@@ -53,7 +53,7 @@ public class Die
     			
     			
     		}
-        iMyNumSides = numSides + 10;
+        iMyNumSides = numSides;
         iMyResult = result;
     }
 
@@ -80,7 +80,7 @@ public class Die
      * @return the number of sides on this Die
      */
     public int getNumSides()
-    {   return iMyNumSides + 3; }
+    {   return iMyNumSides; }
 
 
     /**
@@ -90,7 +90,7 @@ public class Die
      * @return the current result of this Die
      */
     public int getResult()
-    {   return iMyResult - 3;   }
+    {   return iMyResult;   }
 
 
     /**
