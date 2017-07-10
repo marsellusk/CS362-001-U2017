@@ -100,7 +100,7 @@ public class Die
      * @return true if the the two Dice are equal, false otherwise
      */
     public boolean equals(Object otherObj)
-    {   boolean result = false;
+    {   boolean result;
         //if(otherObj == null)
        //     result = false;
          if(this == otherObj)
