@@ -91,14 +91,14 @@ public class ApptRandomTest {
 						   String newTitle=(String) ValuesGenerator.getString(random);
 						   appt.setTitle(newTitle);						   
 						}
-					   else if (methodName.equals("setRecurrence")){
-						   int sizeArray=ValuesGenerator.getRandomIntBetween(random, 0, 8);
-						   int[] recurDays=ValuesGenerator.generateRandomArray(random, sizeArray);
-						   int recur=ApptRandomTest.RandomSelectRecur(random);
-						   int recurIncrement = ValuesGenerator.RandInt(random);
-						   int recurNumber=ApptRandomTest.RandomSelectRecurForEverNever(random);
-						   appt.setRecurrence(recurDays, recur, recurIncrement, recurNumber);
-						}				
+				//	   else if (methodName.equals("setRecurrence")){
+				//		   int sizeArray=ValuesGenerator.getRandomIntBetween(random, 0, 8);
+				//		   int[] recurDays=ValuesGenerator.generateRandomArray(random, sizeArray);
+				//		   int recur=ApptRandomTest.RandomSelectRecur(random);
+				//		   int recurIncrement = ValuesGenerator.RandInt(random);
+				//		   int recurNumber=ApptRandomTest.RandomSelectRecurForEverNever(random);
+				//		   appt.setRecurrence(recurDays, recur, recurIncrement, recurNumber);
+				//		}				
 				}
 				
 				 elapsed = (Calendar.getInstance().getTimeInMillis() - startTime);

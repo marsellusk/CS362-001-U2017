@@ -2,6 +2,9 @@ package calendar;
 
 
 import org.junit.Test;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Random;
 
 
 import static org.junit.Assert.*;
@@ -15,7 +18,7 @@ import static org.junit.Assert.*;
 public class CalDayRandomTest {
 	private static final long TestTimeout = 60 * 500 * 1; /* Timeout at 30 seconds */
 	private static final int NUM_TESTS=100;
-}
+
 	
 	 public static String RandomSelectMethod(Random random){
 	        String[] methodArray = new String[] {"addAppt","setDay","setMonth","setYear"};// The list of the of methods to be tested in the Appt class
@@ -50,26 +53,22 @@ public class CalDayRandomTest {
 	  public void radnomtest()  throws Throwable  {
 		
 		 
-		 long startTime = Calendar.getInstance().getTimeInMillis();
-		 long elapsed = Calendar.getInstance().getTimeInMillis() - startTime;
+		
 
 		 
 		 System.out.println("Start testing...");
-		 
-		try{ 
-		  for (int iteration = 0; elapsed < TestTimeout; iteration++) {
-			long randomseed =System.currentTimeMillis(); //10
-			//			System.out.println(" Seed:"+randomseed );
+		 for(int i=0; i<1000; i++) {
+		 				long randomseed =System.currentTimeMillis();
 						Random random = new Random(randomseed);
 						 
 						GregorianCalendar test = new GregorianCalendar(2018,7,20);
 						 CalDay cal = new CalDay(test);
 						 
-						 int startHour=ValuesGenerator.getRandomIntBetween(random, -100, 100);
-						 int startMinute=ValuesGenerator.getRandomIntBetween(random, -100, 100);
-						 int startDay=ValuesGenerator.getRandomIntBetween(random, -100, 100);;
-						 int startMonth=ValuesGenerator.getRandomIntBetween(random, -100, 100);;
-						 int startYear=ValuesGenerator.getRandomIntBetween(random, -100, 100);
+						 int startHour=ValuesGenerator.getRandomIntBetween(random, 0, 40);
+						 int startMinute=ValuesGenerator.getRandomIntBetween(random, 0, 80);
+						 int startDay=ValuesGenerator.getRandomIntBetween(random, 0, 50);
+						 int startMonth=ValuesGenerator.getRandomIntBetween(random, 0, 30);
+						 int startYear=ValuesGenerator.getRandomIntBetween(random, 0, 2000);
 						 String title="Birthday Party";
 						 String description="This is my birthday party.";
 						 //Construct a new Appointment object with the initial data	 
@@ -83,11 +82,11 @@ public class CalDayRandomTest {
 						 
 						// cal.addAppt(appt);
 						 
-						  startHour=ValuesGenerator.getRandomIntBetween(random, -100, 100);
-						  startMinute=ValuesGenerator.getRandomIntBetween(random, -100, 100);
-						  startDay=ValuesGenerator.getRandomIntBetween(random, -100, 100);;
-						  startMonth=ValuesGenerator.getRandomIntBetween(random, -100, 100);;
-						  startYear=ValuesGenerator.getRandomIntBetween(random, -100, 100);
+						  startHour=ValuesGenerator.getRandomIntBetween(random, 0, 40);
+						  startMinute=ValuesGenerator.getRandomIntBetween(random, 0, 80);
+						  startDay=ValuesGenerator.getRandomIntBetween(random, 0, 50);
+						  startMonth=ValuesGenerator.getRandomIntBetween(random, 0, 30);
+						  startYear=ValuesGenerator.getRandomIntBetween(random, 0, 2000);
 						  title="Birthday Party";
 						  description="This is my brother's birthday party.";
 						 //Construct a new Appointment object with the initial data	 
@@ -101,33 +100,15 @@ public class CalDayRandomTest {
 						 
 						// cal.addAppt(appt2);
 						 
-						 if(!appt.getValid())continue;
-						 	if(!appt2.getValid())continue;
-							for (int i = 0; i < NUM_TESTS; i++) {
-									String methodName = ApptRandomTest.RandomSelectMethod(random);
-									   if (methodName.equals("addAppt")){
-										 cal.addAppt(appt);
-										 cal.addAppt(appt2);
-										}
-									   else if (methodName.equals("setRecurrence")){
-										   int sizeArray=ValuesGenerator.getRandomIntBetween(random, 0, 8);
-										   int[] recurDays=ValuesGenerator.generateRandomArray(random, sizeArray);
-										   int recur=ApptRandomTest.RandomSelectRecur(random);
-										   int recurIncrement = ValuesGenerator.RandInt(random);
-										   int recurNumber=ApptRandomTest.RandomSelectRecurForEverNever(random);
-										   appt.setRecurrence(recurDays, recur, recurIncrement, recurNumber);
-										}				
-								}
-								
-								 elapsed = (Calendar.getInstance().getTimeInMillis() - startTime);
-							        if((iteration%10000)==0 && iteration!=0 )
-							              System.out.println("elapsed time: "+ elapsed + " of "+TestTimeout);
-							 
-							}
-						}catch(NullPointerException e){
+						// if(!appt.getValid()) {
+						 	//if(!appt2.getValid()) {
 							
-						}
-					 
+							cal.addAppt(appt);
+						    cal.addAppt(appt2);
+						 	//}
+										
+						 //}
+		 }
 						 System.out.println("Done testing...");
 		 
 		 
